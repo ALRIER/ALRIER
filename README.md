@@ -1,7 +1,8 @@
 ### Hi there 👋
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ALRIER&langs_count=8)](https://github.com/ALRIER)
 
-![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220478533-a0199d9f-4967-4e60-86b2-b2d28abed0e4.png)
+![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220478533-a0199d9f-4967-4e60-86b2-b2d28abed0e4.png) 
+![rstudio-logo](https://user-images.githubusercontent.com/56406907/220478872-d57dfd8a-ad5b-43eb-b634-24c9e1e104c9.png)
 
 
 <!--
