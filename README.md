@@ -1,6 +1,7 @@
 ### Hi there 👋
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ALRIER&langs_count=8)](https://github.com/ALRIER)
 
+![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220477373-00669d90-9300-47b7-a00c-44972b2eabb6.png)
 
 <!--
 **ALRIER/ALRIER** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
