@@ -6,7 +6,6 @@ In addition to my academic achievements, I have also gained hands-on experience 
 
 ![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220478533-a0199d9f-4967-4e60-86b2-b2d28abed0e4.png) 
 ![rstudio-logo](https://user-images.githubusercontent.com/56406907/220478872-d57dfd8a-ad5b-43eb-b634-24c9e1e104c9.png)
-![mysql-mariadb](https://user-images.githubusercontent.com/56406907/220480611-0cbf951f-3844-49dd-94d7-13b31d95ed56.png)
 
 
 <!--
