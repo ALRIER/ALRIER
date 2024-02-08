@@ -1,8 +1,6 @@
 ### Hi there my name is Alvaro 👋
 
-With a strong background in psychology and over six years of experience in the marketing industry, I am a detail-oriented and highly adaptable professional. My expertise in market research and business/data analytics, combined with my postgraduate specialization in Human Talent Management, a Master's Degree in Organizational Psychology, and Ph.D. in Consumer Behavior, has equipped me with a unique skill set in the field.
-
-In addition to my academic achievements, I have also gained hands-on experience in project management, marketing management, and the use of programming languages for market data analysis, as well as developing strategic plans and utilizing predictive statistical modeling for business.
+A psychologist with a PhD in psychology, specializing in consumer behavior and computational psychology. I have a profound passion for and interest in data science and complex systems. I am particularly enthusiastic about programming, with a strong preference for Python and R.
 
 ![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220478533-a0199d9f-4967-4e60-86b2-b2d28abed0e4.png) 
 ![rstudio-logo](https://user-images.githubusercontent.com/56406907/220478872-d57dfd8a-ad5b-43eb-b634-24c9e1e104c9.png)
