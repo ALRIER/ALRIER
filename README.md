@@ -1,6 +1,6 @@
 ### Hi there my name is Alvaro 👋
 
-A psychologist with a PhD in psychology, specializing in consumer behavior and computational psychology. I have a profound passion for and interest in data science and complex systems. I am particularly enthusiastic about programming, with a strong preference for Python and R.
+A psychologist with a PhD in the same field, specializing in consumer behavior and computational psychology. I have a profound passion for and interest in data science and complex systems. I am particularly enthusiastic about programming, with a strong preference for Python and R.
 
 ![Python-logo-notext svg](https://user-images.githubusercontent.com/56406907/220478533-a0199d9f-4967-4e60-86b2-b2d28abed0e4.png) 
 ![rstudio-logo](https://user-images.githubusercontent.com/56406907/220478872-d57dfd8a-ad5b-43eb-b634-24c9e1e104c9.png)
