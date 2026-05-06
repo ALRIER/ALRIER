@@ -1,4 +1,4 @@
-## Hey, I'm Álvaro 👋
+## Hey, I'm Álvaro 👋 ---> https://alrier.github.io/ALRIER/
 `psychologist · amateur programmer · perpetual learner`
 
 PhD in Psychology — consumer behavior & computational psychology. Got into data science almost by accident, and never looked back. I build small tools, run analyses, and explore ideas across disciplines just because it's interesting.
