@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alvaro Rivera-Eraso — Psychologist, Data Scientist & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-muted: #6b6b65; --ink-faint: #b0b0a8;
+      --paper: #fafaf7; --paper-warm: #f2f1ec;
+      --accent: #2a5caa; --accent-light: #e8edf7; --rule: #e0dfda;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; background: rgba(250,250,247,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+    .nav-logo { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); letter-spacing: 0.04em; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 4rem; max-width: 1100px; margin: 0 auto; }
+    .hero-inner { max-width: 740px; }
+    .hero-tag { font-family: var(--font-mono); font-size: 12px; font-weight: 300; color: var(--ink-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards; }
+    .hero-name { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.4rem; opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
+    .hero-name em { font-style: italic; color: var(--ink-muted); }
+    .hero-desc { font-size: 1.1rem; font-weight: 300; color: var(--ink-muted); max-width: 580px; margin: 1.6rem 0 2.2rem; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; opacity: 0; animation: fadeUp 0.7s ease 0.45s forwards; margin-bottom: 2.8rem; }
+    .chip { font-family: var(--font-mono); font-size: 11.5px; font-weight: 300; padding: 5px 12px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-muted); }
+    .chip.accent { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 13px; font-weight: 500; padding: 10px 22px; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
+    .btn-primary { background: var(--ink); color: var(--paper); }
+    .btn-primary:hover { background: #333; }
+    .btn-outline { border: 1px solid var(--rule); color: var(--ink-muted); }
+    .btn-outline:hover { border-color: var(--ink-muted); color: var(--ink); }
+    section { max-width: 1100px; margin: 0 auto; padding: 5rem 3rem; }
+    .section-label { font-family: var(--font-mono); font-size: 11px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.6rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; line-height: 1.2; margin-bottom: 3rem; }
+    .section-subtitle { font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 400; line-height: 1.2; margin-top: 3.5rem; margin-bottom: 1.8rem; color: var(--ink); }
+    hr.divider { border: none; border-top: 1px solid var(--rule); max-width: 1100px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
+    .about-text p { font-size: 0.975rem; color: var(--ink-muted); line-height: 1.85; margin-bottom: 1.1rem; font-weight: 300; }
+    .about-text p strong { color: var(--ink); font-weight: 500; }
+    .sidebar-block { margin-bottom: 2.2rem; }
+    .sidebar-block h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.75rem; }
+    .sidebar-block p, .sidebar-block a { font-size: 13.5px; font-weight: 300; color: var(--ink-muted); line-height: 1.7; display: block; text-decoration: none; }
+    .sidebar-block a:hover { color: var(--accent); }
+    .badge-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge-grid img { height: 22px; }
+    .timeline { position: relative; padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+    .timeline-item { position: relative; margin-bottom: 2.8rem; padding-left: 1.5rem; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot { position: absolute; left: -1.97rem; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink-faint); }
+    .timeline-dot.active { border-color: var(--accent); background: var(--accent); }
+    .timeline-role { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+    .timeline-company { font-size: 13px; color: var(--ink-muted); margin-bottom: 3px; }
+    .timeline-period { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); margin-bottom: 0.7rem; }
+    .timeline-desc { font-size: 13px; font-weight: 300; color: var(--ink-muted); line-height: 1.7; }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.7rem; }
+    .t-tag { font-family: var(--font-mono); font-size: 10.5px; padding: 3px 9px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-faint); }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .edu-card { background: var(--paper); padding: 1.6rem 1.5rem; }
+    .edu-badge { display: inline-block; font-family: var(--font-mono); font-size: 10px; padding: 3px 9px; background: var(--accent-light); color: var(--accent); border-radius: 2px; margin-bottom: 0.6rem; letter-spacing: 0.04em; }
+    .edu-degree { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+    .edu-school { font-size: 13px; color: var(--ink-muted); margin-bottom: 3px; }
+    .edu-period { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); margin-bottom: 0.6rem; }
+    .edu-note { font-size: 12.5px; font-weight: 300; color: var(--ink-faint); line-height: 1.6; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .project-card { background: var(--paper); padding: 1.8rem 1.6rem; transition: background 0.2s; text-decoration: none; display: block; }
+    .project-card:hover { background: var(--paper-warm); }
+    .project-card:hover .project-arrow { opacity: 1; transform: translate(0,0); }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.7rem; }
+    .project-name { font-family: var(--font-mono); font-size: 13px; color: var(--ink); }
+    .project-arrow { font-size: 14px; color: var(--ink-faint); opacity: 0; transform: translate(-4px, 4px); transition: all 0.2s; }
+    .project-desc { font-size: 13px; font-weight: 300; color: var(--ink-muted); line-height: 1.65; margin-bottom: 1.2rem; }
+    .project-footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .project-lang { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); display: flex; align-items: center; gap: 5px; }
+    .lang-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .lang-python { background: #3572A5; } .lang-r { background: #276DC3; } .lang-jupyter { background: #DA5B0B; }
+    .project-stars { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    .project-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-faint); }
+    .pub-list { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+    .pub-item { padding: 1.5rem 1.8rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 36px 1fr; gap: 1rem; align-items: start; transition: background 0.2s; text-decoration: none; }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-item:hover { background: var(--paper-warm); }
+    .pub-num { font-family: var(--font-mono); font-size: 12px; font-weight: 300; color: var(--ink-faint); padding-top: 2px; }
+    .pub-title { font-size: 14px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
+    .pub-meta { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .cert-card { background: var(--paper); padding: 1.3rem 1.4rem; }
+    .cert-name { font-size: 13.5px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+    .cert-issuer { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    .cert-issuer a { color: var(--accent); text-decoration: none; }
+    .research-list { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+    .research-item { padding: 1.4rem 1.8rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 36px 1fr auto; gap: 1rem; align-items: start; }
+    .research-item:last-child { border-bottom: none; }
+    .research-num { font-family: var(--font-mono); font-size: 12px; font-weight: 300; color: var(--ink-faint); padding-top: 2px; }
+    .research-title { font-size: 14px; font-weight: 400; color: var(--ink); margin-bottom: 3px; }
+    .research-meta { font-size: 12px; font-weight: 300; color: var(--ink-faint); font-family: var(--font-mono); }
+    .research-area { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; background: var(--paper-warm); border-radius: 2px; color: var(--ink-muted); white-space: nowrap; align-self: center; }
+    .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .connect-text p { font-size: 0.975rem; font-weight: 300; color: var(--ink-muted); line-height: 1.85; margin-bottom: 1.2rem; }
+    .connect-links { display: flex; flex-direction: column; border: 1px solid var(--rule); }
+    .connect-link { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--rule); text-decoration: none; transition: background 0.2s; }
+    .connect-link:last-child { border-bottom: none; }
+    .connect-link:hover { background: var(--paper-warm); }
+    .connect-link-label { font-size: 13px; font-weight: 400; color: var(--ink); }
+    .connect-link-sub { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    .connect-link-arrow { font-size: 13px; color: var(--ink-faint); }
+    footer { max-width: 1100px; margin: 0 auto; padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--rule); }
+    footer p { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--ink-muted); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .hero { padding: 7rem 1.5rem 3rem; } section { padding: 3.5rem 1.5rem; }
+      .about-grid, .connect-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      .research-item { grid-template-columns: 32px 1fr; } .research-area { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Alvaro Rivera-Eraso</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">Psychologist · Data Scientist · Researcher · Amateur Programmer</p>
+    <h1 class="hero-name">Alvaro<br><em>Rivera-Eraso</em></h1>
+    <p class="hero-desc">
+      PhD in Psychology. MEng in Artificial Intelligence (in progress). I work at the intersection of behavioral science, data, and investment research — and I code on the side because I genuinely enjoy it.
+    </p>
+    <div class="hero-chips">
+      <span class="chip accent">Python</span>
+      <span class="chip accent">R</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">Explainable AI</span>
+      <span class="chip">Consumer Behavior</span>
+      <span class="chip">Quantitative Finance</span>
+      <span class="chip">Statistics</span>
+      <span class="chip">Tableau</span>
+    </div>
+    <div class="hero-cta">
+      <a href="https://github.com/ALRIER" target="_blank" class="btn btn-primary">View GitHub ↗</a>
+      <a href="#experience" class="btn btn-outline">Work history</a>
+      <a href="#projects" class="btn btn-outline">Projects</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">About me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>knowledge-driven person</strong> whose background is in psychology but whose curiosity lives somewhere between consumer behavior, computer science, and economics. I love the Austrian School, and I believe the intersection of human behavior and quantitative models will reshape how we understand markets and people.</p>
+      <p>I hold a <strong>PhD in Behavioral Economics / Consumer Behavior</strong> from Konrad Lorenz University and I'm currently pursuing a <strong>Master of Engineering in Artificial Intelligence</strong> at the University of Hull. The combination isn't accidental — I want to understand both the power and the limits of models when applied to human systems.</p>
+      <p>Professionally, I work as a <strong>Research Interviewer at IDC</strong>, conducting market research and business value interviews. I've also taught at Fanshawe College and Konrad Lorenz University — subjects like behavioral economics, decision science, big data analytics, and business analytics.</p>
+      <p>On the side, I actively manage a personal investment portfolio, typically generating returns between 5–15% annually. Nothing magical — just discipline, curiosity, and constant learning.</p>
+      <p style="font-style:italic;color:var(--ink-faint);font-size:0.9rem;">P.S. I'm also a gym rat 💪</p>
+    </div>
+    <div>
+      <div class="sidebar-block">
+        <h4>Location</h4>
+        <p>London, Ontario, Canada</p>
+        <p>Originally from Colombia 🇨🇴</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>Languages</h4>
+        <p>Spanish — native</p>
+        <p>English — full professional</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>Current roles</h4>
+        <p>Research Interviewer · IDC</p>
+        <p>MEng AI student · University of Hull</p>
+        <p>Independent investor & researcher</p>
+      </div>
+      <div class="sidebar-block">
+        <h4>Stack</h4>
+        <div class="badge-grid">
+          <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+          <img src="https://img.shields.io/badge/R-276DC3?style=flat-square&logo=r&logoColor=white" alt="R"/>
+          <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter"/>
+          <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="pandas"/>
+          <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+          <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
+          <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="SQL"/>
+          <img src="https://img.shields.io/badge/Tableau-E97627?style=flat-square&logo=tableau&logoColor=white" alt="Tableau"/>
+          <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="experience">
+  <p class="section-label">Career</p>
+  <h2 class="section-title">Work experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-role">Research Interviewer</div>
+      <div class="timeline-company">IDC · Permanent Full-time</div>
+      <div class="timeline-period">Aug 2024 – Present · London, Ontario (Remote)</div>
+      <p class="timeline-desc">Conducting structured business value interviews and market research for one of the world's leading technology intelligence firms. Work sits at the intersection of qualitative insight, data collection, and portfolio analysis.</p>
+      <div class="timeline-tags"><span class="t-tag">Market Research</span><span class="t-tag">Interviewing</span><span class="t-tag">Business Value</span><span class="t-tag">Portfolio Analysis</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-role">Professor — Business Analytics & Project Management</div>
+      <div class="timeline-company">Fanshawe College · Contract Part-time</div>
+      <div class="timeline-period">Sep 2023 – Sep 2024 · London, Canada (On-site)</div>
+      <p class="timeline-desc">Taught Business Analytics and Project Management with a hands-on, case-based approach. Prepared students for data-driven decision making in professional environments.</p>
+      <div class="timeline-tags"><span class="t-tag">Teaching</span><span class="t-tag">Business Analytics</span><span class="t-tag">R</span><span class="t-tag">Git</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-role">Data Science Researcher</div>
+      <div class="timeline-company">Tau-Insights · Contract Full-time</div>
+      <div class="timeline-period">Feb 2006 – Apr 2024 · Canada (Remote)</div>
+      <p class="timeline-desc">Applied advanced statistical techniques and ML models to large datasets to identify consumer behavior patterns. Built predictive models, improved data pipelines, and communicated findings to project sponsors.</p>
+      <div class="timeline-tags"><span class="t-tag">ML</span><span class="t-tag">Consumer Behavior</span><span class="t-tag">Statistics</span><span class="t-tag">Python</span><span class="t-tag">R</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-role">Professor — Psychology & Data Science</div>
+      <div class="timeline-company">Fundación Universitaria Konrad Lorenz · Part-time</div>
+      <div class="timeline-period">Jan 2020 – May 2024 · Bogotá, Colombia</div>
+      <p class="timeline-desc">Taught postgraduate psychology courses including decision science, behavioral economics, statistical science, and big data analytics. 4+ years building curriculum at the intersection of psychology and data.</p>
+      <div class="timeline-tags"><span class="t-tag">Decision Science</span><span class="t-tag">Behavioral Economics</span><span class="t-tag">Big Data</span><span class="t-tag">Statistics</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-role">Data Analyst</div>
+      <div class="timeline-company">Charing Cross Capital, Canada · Contract Full-time</div>
+      <div class="timeline-period">Jan 2022 – Dec 2022 · London, Ontario (Remote)</div>
+      <p class="timeline-desc">Data analysis using Python and Tableau to optimize IT and business processes. Translated business requirements into functional specs and coordinated across departments to unify data strategy.</p>
+      <div class="timeline-tags"><span class="t-tag">Python</span><span class="t-tag">Tableau</span><span class="t-tag">Statistical Analysis</span><span class="t-tag">Business Intelligence</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-role">Market Researcher / Data Analytics</div>
+      <div class="timeline-company">Independent · Contract Part-time</div>
+      <div class="timeline-period">Jan 2020 – Dec 2021 · Bogotá, Colombia</div>
+      <p class="timeline-desc">Guided businesses end-to-end through research design and implementation. Used Python, R, SQL, and Tableau to generate insights and visualizations for clients. Applied ML to uncover market opportunities.</p>
+      <div class="timeline-tags"><span class="t-tag">Python</span><span class="t-tag">R</span><span class="t-tag">SQL</span><span class="t-tag">Tableau</span><span class="t-tag">Market Research</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="education">
+  <p class="section-label">Academic background</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-grid">
+
+    <div class="edu-card">
+      <span class="edu-badge">in progress</span>
+      <div class="edu-degree">Master of Engineering — Artificial Intelligence</div>
+      <div class="edu-school">University of Hull</div>
+      <div class="edu-period">Sep 2024 – Sep 2026</div>
+      <div class="edu-note">MEng program in AI methods, applied ML, and intelligent systems engineering.</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-degree">Doctor of Philosophy — Behavioral Economics / Consumer Behavior</div>
+      <div class="edu-school">Fundación Universitaria Konrad Lorenz</div>
+      <div class="edu-period">Jan 2018 – Aug 2021</div>
+      <div class="edu-note">Quantitative and qualitative consumer behavior research, decision-making, and the intersection of behavioral economics and data science.</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-degree">Data Science studies</div>
+      <div class="edu-school">University of Waterloo</div>
+      <div class="edu-period">2023</div>
+      <div class="edu-note">Applied data science and analytics coursework.</div>
+    </div>
+
+    <div class="edu-card">
+      <span class="edu-badge">volunteer</span>
+      <div class="edu-degree">Volunteer Staff — Energy4me</div>
+      <div class="edu-school">SPE Colombian Section</div>
+      <div class="edu-period">Nov 2017 – Oct 2018</div>
+      <div class="edu-note">Education outreach project on water and energy sustainability for the Society of Petroleum Engineers.</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="projects">
+  <p class="section-label">Code</p>
+  <h2 class="section-title">Selected projects</h2>
+  <div class="projects-grid">
+
+    <a href="https://github.com/ALRIER/IDC_Tracker" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">IDC_Tracker</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Business Value Interview tracking app built for IDC. Full Python application for managing and visualizing interview data.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-python"></span>Python</span><span class="project-tag">tool</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/XAI---Explainable-AI" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">XAI — Explainable AI</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Exploration of explainability methods in machine learning — making black boxes more transparent.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-tag">ai / ml</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/TRIPEMINST-Variation" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Triple-MNIST CNN</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">CNN trained on a 3-digit variation of the Triple-MNIST dataset. Custom architecture for multi-digit recognition tasks.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-tag">deep learning</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/Genetic_Algorithms" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Genetic Algorithms</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Genetic algorithm implementations in R for optimization problems. Evolutionary computation applied to real search tasks.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-r"></span>R</span><span class="project-tag">optimization</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/Unsupervised-machine-learning" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Unsupervised ML</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Three multivariate analyses — factor analysis, PCA, clustering — applied to a dark tourism scale.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-stars">★ 8</span><span class="project-tag">statistics</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/BehavDA" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">BehavDA</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Behavioral data analysis toolkit connecting psychological theory with data science methods.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-stars">★ 7</span><span class="project-tag">behavioral</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/HR_MachineLearning" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">HR Machine Learning</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Predictive modeling on HR datasets. Classification and regression applied to people analytics.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-stars">★ 6</span><span class="project-tag">ml</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/Sentiment_analysis" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Sentiment Analysis</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">NLP-based sentiment analysis pipeline in R. Text mining applied to consumer and social media data.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-r"></span>R</span><span class="project-stars">★ 3</span><span class="project-tag">nlp</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/Covid-Bibliometry" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">COVID Bibliometry</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Bibliometric analysis of COVID-19 scientific literature using Scopus data. Mapping a research landscape.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-r"></span>R</span><span class="project-tag">bibliometrics</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/MultilayerNetworks_InsectsPUB" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Multilayer Networks</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Network analysis applied to entomological data. Multilayer structures for ecological and behavioral research.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-tag">networks</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER/Omnichannel" target="_blank" class="project-card">
+      <div class="project-header"><span class="project-name">Omnichannel Analytics</span><span class="project-arrow">↗</span></div>
+      <p class="project-desc">Analysis of omnichannel consumer behavior — how customers move and decide across multiple touchpoints.</p>
+      <div class="project-footer"><span class="project-lang"><span class="lang-dot lang-jupyter"></span>Jupyter</span><span class="project-tag">consumer behavior</span></div>
+    </a>
+
+    <a href="https://github.com/ALRIER?tab=repositories" target="_blank" class="project-card" style="display:flex;align-items:center;justify-content:center;min-height:140px;">
+      <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);letter-spacing:0.06em;">View all 69 repositories ↗</span>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="publications">
+  <p class="section-label">Academia</p>
+  <h2 class="section-title">Publications</h2>
+  <div class="pub-list">
+    <a href="https://doi.org/10.14349/RLP.2020.V52.22" target="_blank" class="pub-item">
+      <span class="pub-num">01</span>
+      <div>
+        <div class="pub-title">Dark Tourism destinations: an explanatory model of its perceived value</div>
+        <div class="pub-meta">Revista Latinoamericana de Psicología · Mar 2021 · DOI: 10.14349/RLP.2020.V52.22</div>
+      </div>
+    </a>
+    <div class="pub-item" style="cursor:default;">
+      <span class="pub-num">02</span>
+      <div>
+        <div class="pub-title">La motivación como un factor fundamental en el éxito deportivo</div>
+        <div class="pub-meta">Revista institucional — Universidad Estatal de Belgorod, Rusia · Sep 2014</div>
+      </div>
+    </div>
+    <div class="pub-item" style="cursor:default;">
+      <span class="pub-num">03</span>
+      <div>
+        <div class="pub-title">Natural Language Use as Bipartite Networks in Psychology</div>
+        <div class="pub-meta">Supplemental material — collaborative repository (jcorrean/Text_as_Bipartite_Network)</div>
+      </div>
+    </div>
+    <div class="pub-item" style="cursor:default;">
+      <span class="pub-num">04</span>
+      <div>
+        <div class="pub-title">Soft Skills Centrality: An International Perspective</div>
+        <div class="pub-meta">Collaborative research — jcorrean/SSC</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle">Licenses & certifications</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-name">Google Digital Marketing & E-commerce Professional Certificate</div>
+      <div class="cert-issuer">Google Career Certificates · Coursera</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-name">Data Privacy Fundamentals</div>
+      <div class="cert-issuer">Cognitive Class (IBM) · Mar 2023</div>
+    </div>
+    <div class="cert-card" style="display:flex;align-items:center;justify-content:center;min-height:80px;">
+      <div class="cert-issuer"><a href="https://linkedin.com/in/alrier" target="_blank">+ 6 more — view on LinkedIn ↗</a></div>
+    </div>
+  </div>
+
+  <h2 class="section-subtitle">Research interests</h2>
+  <div class="research-list">
+    <div class="research-item"><span class="research-num">01</span><div><div class="research-title">Explainable AI & interpretable machine learning</div><div class="research-meta">Understanding what models actually learn</div></div><span class="research-area">AI / ML</span></div>
+    <div class="research-item"><span class="research-num">02</span><div><div class="research-title">Computational psychology & consumer behavior</div><div class="research-meta">Applying data science to behavioral research</div></div><span class="research-area">Psychology</span></div>
+    <div class="research-item"><span class="research-num">03</span><div><div class="research-title">Quantitative finance & portfolio analysis</div><div class="research-meta">Statistical and ML methods applied to investment decisions</div></div><span class="research-area">Finance</span></div>
+    <div class="research-item"><span class="research-num">04</span><div><div class="research-title">Bibliometrics & science mapping</div><div class="research-meta">Tracking the structure and evolution of scientific fields</div></div><span class="research-area">Scientometrics</span></div>
+    <div class="research-item"><span class="research-num">05</span><div><div class="research-title">Network analysis & graph methods</div><div class="research-meta">Multilayer networks, text-as-network, social and ecological systems</div></div><span class="research-area">Statistics</span></div>
+    <div class="research-item"><span class="research-num">06</span><div><div class="research-title">Multivariate statistics & dimensionality reduction</div><div class="research-meta">Factor analysis, PCA, clustering across social and behavioral data</div></div><span class="research-area">Statistics</span></div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="connect">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">Get in touch</h2>
+  <div class="connect-grid">
+    <div class="connect-text">
+      <p>Happy to talk about research collaborations, behavioral finance, data science, portfolio analysis, or just interesting problems worth solving.</p>
+      <p>Most of my code lives on GitHub. Full work history and publications on LinkedIn. Some data visualizations on Tableau Public.</p>
+      <p>Also building a presence on Hugging Face — models and spaces coming soon.</p>
+    </div>
+    <div class="connect-links">
+      <a href="https://github.com/ALRIER" target="_blank" class="connect-link">
+        <div><div class="connect-link-label">GitHub</div><div class="connect-link-sub">github.com/ALRIER · 69 repos</div></div>
+        <span class="connect-link-arrow">↗</span>
+      </a>
+      <a href="https://linkedin.com/in/alrier" target="_blank" class="connect-link">
+        <div><div class="connect-link-label">LinkedIn</div><div class="connect-link-sub">in/alrier · 500+ connections</div></div>
+        <span class="connect-link-arrow">↗</span>
+      </a>
+      <a href="https://public.tableau.com/app/profile/alrier" target="_blank" class="connect-link">
+        <div><div class="connect-link-label">Tableau Public</div><div class="connect-link-sub">public.tableau.com/alrier</div></div>
+        <span class="connect-link-arrow">↗</span>
+      </a>
+      <a href="https://huggingface.co/" target="_blank" class="connect-link" style="opacity:0.45;">
+        <div><div class="connect-link-label">Hugging Face</div><div class="connect-link-sub">coming soon</div></div>
+        <span class="connect-link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Alvaro Rivera-Eraso</p>
+  <p>Built with <a href="https://pages.github.com">GitHub Pages</a> · <a href="https://github.com/ALRIER/ALRIER">Source ↗</a></p>
+</footer>
+
+</body>
+</html>
