@@ -84,6 +84,26 @@
     .lang-python { background: #3572A5; } .lang-r { background: #276DC3; } .lang-jupyter { background: #DA5B0B; } .lang-finance { background: #2a5caa; }
     .project-stars { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
     .project-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-faint); }
+    .analysis-shell { border: 1px solid var(--rule); }
+    .analysis-intro { padding: 1.8rem; border-bottom: 1px solid var(--rule); background: var(--paper-warm); }
+    .analysis-intro p { font-size: 0.96rem; font-weight: 300; color: var(--ink-muted); line-height: 1.8; max-width: 860px; }
+    .analysis-grid { display: grid; grid-template-columns: 1.55fr 0.95fr; }
+    .analysis-main { padding: 1.8rem; border-right: 1px solid var(--rule); }
+    .analysis-side { padding: 1.8rem; }
+    .analysis-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.8rem; }
+    .analysis-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+    .analysis-title { font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
+    .analysis-meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); white-space: nowrap; padding-top: 2px; }
+    .analysis-main p { font-size: 0.94rem; font-weight: 300; color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+    .analysis-points { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 1.2rem; }
+    .analysis-point { background: var(--paper); padding: 1rem 1rem 1.05rem; }
+    .analysis-point h4 { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.55rem; }
+    .analysis-point p { margin: 0; font-size: 0.9rem; line-height: 1.7; }
+    .analysis-side h3 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
+    .analysis-note { padding: 0 0 1.15rem; border-bottom: 1px solid var(--rule); margin-bottom: 1.15rem; }
+    .analysis-note:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .analysis-note-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 0.35rem; }
+    .analysis-note p { font-size: 0.88rem; font-weight: 300; color: var(--ink-muted); line-height: 1.7; }
     .pub-list { display: flex; flex-direction: column; border: 1px solid var(--rule); }
     .pub-item { padding: 1.5rem 1.8rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 36px 1fr; gap: 1rem; align-items: start; transition: background 0.2s; text-decoration: none; }
     .pub-item:last-child { border-bottom: none; }
@@ -120,7 +140,9 @@
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .hero { padding: 7rem 1.5rem 3rem; } section { padding: 3.5rem 1.5rem; }
-      .about-grid, .connect-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .connect-grid, .analysis-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .analysis-main { border-right: none; border-bottom: 1px solid var(--rule); }
+      .analysis-points { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
       .research-item { grid-template-columns: 32px 1fr; } .research-area { display: none; }
     }
@@ -135,6 +157,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#market-analysis">Market Analysis</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#connect">Connect</a></li>
   </ul>
@@ -401,6 +424,63 @@
       <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);letter-spacing:0.06em;">View all repositories ↗</span>
     </a>
 
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="market-analysis">
+  <p class="section-label">Market Research</p>
+  <h2 class="section-title">Market Analysis</h2>
+  <div class="analysis-shell">
+    <div class="analysis-intro">
+      <p>This section is a professional market-analysis journal rather than a stream of trading signals. The purpose is to document how risk theory, market structure, behavioral interpretation, and statistical reasoning are applied to real decisions under uncertainty. The emphasis is on process quality, execution logic, and capital preservation, not on displaying large nominal profits.</p>
+    </div>
+    <div class="analysis-grid">
+      <div class="analysis-main">
+        <div class="analysis-kicker">Research Note 01</div>
+        <div class="analysis-head">
+          <div class="analysis-title">FXC — discount-level long aligned with lower volume-profile support and prior cycle behavior</div>
+          <div class="analysis-meta">Swing / 2-5 days</div>
+        </div>
+        <p>This note documents a compact swing position in FXC structured around a low-risk asymmetry rather than an aggressive directional bet. The setup came from a lower value area in the volume profile, a discount-zone entry near marked support, and the expectation of a short cyclical return consistent with prior local rotations.</p>
+        <p>The position was opened with approximately USD 1,000 in exposure and an expected return near USD 30 over a short holding window. The analytical interest is not the absolute size of the gain, but the discipline of entering where the risk could be defined clearly, the thesis could be invalidated quickly, and the reward remained proportional to the capital committed.</p>
+        <p>In practical terms, the idea was simple: if price continued to respect the lower value area and the discount zone held, the trade could remain open for a measured rebound. If the zone failed, the thesis was wrong and the position had to be reduced or closed without negotiation. That is the part worth documenting publicly: the decision framework, not the hindsight outcome.</p>
+        <div class="analysis-points">
+          <div class="analysis-point">
+            <h4>Setup</h4>
+            <p>Lower volume-profile support, discount-level entry, and short-cycle mean reversion expectation.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>IF - THEN</h4>
+            <p>If support holds and rotation confirms, stay in the trade. If structure breaks, reduce or exit. If the projected return window is reached, capitalize partial or full.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>Risk Logic</h4>
+            <p>Small capital allocation, modest expected return, and fast invalidation. The edge comes from bounded downside and repeatable execution, not from oversized predictions.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>Interpretation</h4>
+            <p>This is an example of uncertainty management: act only when market structure offers a defined thesis, a clear failure point, and an acceptable payoff relative to the capital at risk.</p>
+          </div>
+        </div>
+      </div>
+      <div class="analysis-side">
+        <h3>Editorial Structure</h3>
+        <div class="analysis-note">
+          <div class="analysis-note-title">What counts as an article</div>
+          <p>An article is a single market note: one position, one thesis, one decision framework, and one post-trade lesson.</p>
+        </div>
+        <div class="analysis-note">
+          <div class="analysis-note-title">What counts as an edition</div>
+          <p>An edition is a broader cycle update that groups several notes under one market regime, sector rotation, or macro backdrop.</p>
+        </div>
+        <div class="analysis-note">
+          <div class="analysis-note-title">Publishing rule</div>
+          <p>Notes should emphasize analytical reasoning, execution, and risk. Delayed publication is preferable to real-time signaling.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
