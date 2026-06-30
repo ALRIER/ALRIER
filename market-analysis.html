@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Analysis Archive - Alvaro Rivera-Eraso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-muted: #6b6b65; --ink-faint: #b0b0a8;
+      --paper: #fafaf7; --paper-warm: #f2f1ec;
+      --accent: #2a5caa; --accent-light: #e8edf7; --rule: #e0dfda;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; background: rgba(250,250,247,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+    .nav-logo { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); letter-spacing: 0.04em; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 3rem; }
+    .section-label { font-family: var(--font-mono); font-size: 11px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.6rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.3rem; }
+    .section-intro { font-size: 0.98rem; font-weight: 300; color: var(--ink-muted); line-height: 1.85; max-width: 900px; }
+    .archive-grid { margin-top: 2rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .archive-card { background: var(--paper); padding: 1.1rem 1.2rem 1.15rem; text-decoration: none; display: block; transition: background 0.2s; }
+    .archive-card:hover { background: var(--paper-warm); }
+    .archive-kicker { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.5rem; }
+    .archive-title { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.5; margin-bottom: 0.4rem; }
+    .archive-text { font-size: 0.88rem; font-weight: 300; color: var(--ink-muted); line-height: 1.7; }
+    .analysis-shell { border: 1px solid var(--rule); margin-top: 3rem; }
+    .analysis-main { padding: 2rem; }
+    .analysis-article + .analysis-article { border-top: 1px solid var(--rule); margin-top: 2rem; padding-top: 2rem; }
+    .analysis-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.8rem; }
+    .analysis-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+    .analysis-title { font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
+    .analysis-meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); white-space: nowrap; padding-top: 2px; }
+    .analysis-main p { font-size: 0.94rem; font-weight: 300; color: var(--ink-muted); line-height: 1.8; margin-bottom: 1rem; }
+    .analysis-figure { margin: 1.35rem 0 1.55rem; border: 1px solid var(--rule); background: var(--paper); }
+    .analysis-figure img { display: block; width: 100%; height: auto; }
+    .analysis-figure figcaption { padding: 0.8rem 1rem 0.95rem; font-size: 0.84rem; font-weight: 300; color: var(--ink-faint); line-height: 1.7; border-top: 1px solid var(--rule); }
+    .analysis-points { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 1.2rem; }
+    .analysis-point { background: var(--paper); padding: 1rem 1rem 1.05rem; }
+    .analysis-point h4 { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.55rem; }
+    .analysis-point p { margin: 0; font-size: 0.9rem; line-height: 1.7; }
+    footer { max-width: 1100px; margin: 0 auto; padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--rule); }
+    footer p { font-family: var(--font-mono); font-size: 11px; font-weight: 300; color: var(--ink-faint); }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--ink-muted); }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 2.8rem 1.5rem; }
+      .archive-grid, .analysis-points { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alvaro Rivera-Eraso</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Main Site</a></li>
+    <li><a href="#archive-index">Directory</a></li>
+    <li><a href="#note-002">GDX #002</a></li>
+    <li><a href="#note-001">FCX #001</a></li>
+  </ul>
+</nav>
+
+<section id="archive-index">
+  <p class="section-label">Market Research</p>
+  <h1 class="section-title">Market Analysis Archive</h1>
+  <p class="section-intro">This archive indexes the published Market Fractal Notes. The homepage shows only the most recent notes to keep the main site readable. The full article set lives here as an internal GitHub Pages archive rather than an external GitHub repository link.</p>
+  <div class="archive-grid">
+    <a class="archive-card" href="#note-002">
+      <div class="archive-kicker">Latest Note</div>
+      <div class="archive-title">Market Fractal Notes #002 — GDX</div>
+      <div class="archive-text">Dual-entry discount structure with U24 and U18 references, moderate risk, and short-horizon rotation potential toward TP U24.</div>
+    </a>
+    <a class="archive-card" href="#note-001">
+      <div class="archive-kicker">Previous Note</div>
+      <div class="archive-title">Market Fractal Notes #001 — FCX</div>
+      <div class="archive-text">Discount-zone rotation and fractal risk management under a controlled short-cycle capitalization framework.</div>
+    </a>
+  </div>
+
+  <div class="analysis-shell">
+    <div class="analysis-main">
+      <article class="analysis-article" id="note-002">
+        <div class="analysis-kicker">Market Fractal Notes #002</div>
+        <div class="analysis-head">
+          <div class="analysis-title">GDX: Dual-entry discount structure, cycle uncertainty, and short-horizon rotation management</div>
+          <div class="analysis-meta">Swing / 2-5 days</div>
+        </div>
+        <p>Market Fractal Notes is a personal investment journal where I document how market-cycle theory, risk allocation, volume distribution, behavioral market structure, and decision-making under uncertainty can be applied to real market positions.</p>
+        <p>This is not financial advice or a trading signal. The objective is not to predict the market, but to document a structured analytical process behind investment decisions.</p>
+        <p>This note analyzes GDX as a short-horizon rotation case built around a discount-zone structure with two separate entries: one aligned with U24 and another aligned with U18. Both positions are being evaluated within the same lower-range context, but they represent different entry efficiencies inside the same market idea.</p>
+        <figure class="analysis-figure">
+          <img src="assets/gdx-note-002.png" alt="GDX chart showing U18 and U24 entry lines, discount zone, TP U24, and volume profile used in Market Fractal Notes #002" />
+          <figcaption>GDX setup snapshot. The chart highlights the U24 and U18 entry references, the lower-cycle discount area, the projected TP U24 zone, and the volume-profile structure supporting the trade thesis.</figcaption>
+        </figure>
+        <p>From a market-structure perspective, GDX is trading near the lower part of the active range, below equilibrium, and inside a discount zone where prior interaction suggests potential stabilization. That does not eliminate uncertainty. On the contrary, the consumer or participant side of the cycle still reflects hesitation: price is not yet in a fully resolved expansion phase, so the setup should be interpreted as a controlled rotation attempt rather than an aggressive directional conviction trade.</p>
+        <div class="analysis-points">
+          <div class="analysis-point"><h4>Cycle Context</h4><p>Stage of cycle: lower-range discount phase with unresolved sentiment. The structure favors tactical rebound logic, not a mature expansion assumption.</p></div>
+          <div class="analysis-point"><h4>Entry Structure</h4><p>U24 entry near 75.40 and U18 entry near 74.66 define two layers of exposure inside the same thesis, both located around the lower discount structure.</p></div>
+          <div class="analysis-point"><h4>Expected Return</h4><p>Using TP U24 near 78.84 as the reference, the expected move is roughly 4.6% from U24 and 5.6% from U18 over a short multi-day horizon.</p></div>
+          <div class="analysis-point"><h4>Risk Level</h4><p>Risk is moderate. Relative to the lower boundary around 73.63, downside is about 2.3% from U24 and 1.4% from U18, which keeps the structure favorable if sizing remains disciplined.</p></div>
+        </div>
+        <p style="margin-top:1.2rem;">Decision logic remains explicit. If GDX continues to hold the discount zone and price accepts either U24 or U18 as support, then the position can remain open while waiting for rotation back toward the liquidity target. If price expands into the TP U24 area near 78.84, then capitalization becomes reasonable from a percentage-return perspective. If the lower structure fails, the position should not be interpreted mechanically as a prediction error alone; instead, the broader fractal must be reassessed, including whether the cycle has shifted from tactical rebound to deeper accumulation.</p>
+        <p>Why can GDX be favorable here? Because the stock is sitting in a zone where uncertainty is still elevated, but that same uncertainty creates asymmetry when price is already discounted relative to equilibrium and supported by visible volume concentration. In other words, the opportunity is not that the market is safe; it is that the relationship between downside distance, upside rotation potential, and cycle stage is currently acceptable for a small, disciplined swing allocation.</p>
+        <p>This note therefore reflects the same philosophy as the prior publication: process before prediction, limited exposure before conviction, and structured risk before narrative certainty.</p>
+      </article>
+
+      <article class="analysis-article" id="note-001">
+        <div class="analysis-kicker">Market Fractal Notes #001</div>
+        <div class="analysis-head">
+          <div class="analysis-title">FCX: Discount-Zone Rotation and Fractal Risk Management</div>
+          <div class="analysis-meta">Swing / 2-5 days</div>
+        </div>
+        <p>Market Fractal Notes is a personal investment journal where I document how market-cycle theory, risk allocation, volume distribution, behavioral market structure, and decision-making under uncertainty can be applied to real market positions.</p>
+        <p>This is not financial advice or a trading signal. The objective is not to predict the market, but to document a structured analytical process behind investment decisions.</p>
+        <p>This note analyzes FCX as a short-cycle rotation case. The position is based on price interaction with a lower-cycle discount area, supported by Volume Profile concentration near the lower range and prior cyclical behavior.</p>
+        <figure class="analysis-figure">
+          <img src="assets/fcx-note-001.png" alt="FCX chart showing discount zone, U18 support, TP level, and volume profile used in Market Fractal Notes #001" />
+          <figcaption>FCX setup snapshot. The chart highlights the lower-cycle discount area, the U18 reference zone, the projected TP or liquidity area, and the supporting volume-profile structure used in the note.</figcaption>
+        </figure>
+        <p>From a market-structure perspective, the asset is trading below equilibrium and near a zone where previous price interaction suggests potential demand absorption. In this context, the thesis is not that price must move upward, but that the current area offers a reasonable short-cycle rotation opportunity if liquidity starts moving back toward the upper range.</p>
+        <div class="analysis-points">
+          <div class="analysis-point"><h4>Cycle Context</h4><p>FCX is being evaluated within a short-cycle structure. The setup is tactical rather than a long-term fundamental thesis.</p></div>
+          <div class="analysis-point"><h4>Liquidity Zone</h4><p>The position was initiated near the discount or U18 area, where price is interacting with the lower part of the range and the Volume Profile suggests relevant activity.</p></div>
+          <div class="analysis-point"><h4>Behavioral Thesis</h4><p>Discount zones often reflect uncertainty, short-term selling pressure, or temporary imbalance. The question is whether that pressure becomes continuation weakness or rotation back toward equilibrium.</p></div>
+          <div class="analysis-point"><h4>Risk Framework</h4><p>This strategy does not rely on a traditional stop-loss reaction. Risk is managed through sizing, capital allocation, time horizon, and fractal reassessment.</p></div>
+        </div>
+        <p style="margin-top:1.2rem;">Decision logic remains explicit. If price holds near the discount or U18 area, the position stays open while waiting for a short-cycle rotation. If price rotates toward the TP or liquidity area around 63.4, capitalization becomes reasonable. If price breaks the local low, that is not treated automatically as a stop-loss event; the analysis shifts to a broader fractal and the time horizon extends. If the broader cycle deteriorates or capital becomes inefficiently locked, then the position must be reassessed from an opportunity-cost perspective.</p>
+        <p>The objective is modest: a controlled, short-cycle capitalization rather than a large directional bet. The value of this process is not in one single trade, but in documenting repeatable decision-making under uncertainty. This note reflects a capital-preservation approach built on limited exposure, structured reasoning, behavioral interpretation, and process over prediction.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Alvaro Rivera-Eraso</p>
+  <p><a href="index.html">Back to main site ↗</a></p>
+</footer>
+
+</body>
+</html>

@@ -88,6 +88,7 @@
     .analysis-intro { padding: 1.8rem; border-bottom: 1px solid var(--rule); background: var(--paper-warm); }
     .analysis-intro p { font-size: 0.96rem; font-weight: 300; color: var(--ink-muted); line-height: 1.8; max-width: 960px; }
     .analysis-main { padding: 2rem; }
+    .analysis-article + .analysis-article { border-top: 1px solid var(--rule); margin-top: 2rem; padding-top: 2rem; }
     .analysis-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.8rem; }
     .analysis-head { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
     .analysis-title { font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
@@ -445,6 +446,7 @@
       <p>This section is a professional market-analysis journal rather than a stream of trading signals. The purpose is to document how risk theory, market structure, behavioral interpretation, and statistical reasoning are applied to real decisions under uncertainty. The emphasis is on process quality, execution logic, and capital preservation, not on displaying large nominal profits.</p>
     </div>
     <div class="analysis-main">
+      <article class="analysis-article" id="note-002">
       <div class="analysis-kicker">Market Fractal Notes #002</div>
       <div class="analysis-head">
         <div class="analysis-title">GDX: Dual-entry discount structure, cycle uncertainty, and short-horizon rotation management</div>
@@ -479,19 +481,56 @@
       <p style="margin-top:1.2rem;">Decision logic remains explicit. If GDX continues to hold the discount zone and price accepts either U24 or U18 as support, then the position can remain open while waiting for rotation back toward the liquidity target. If price expands into the TP U24 area near 78.84, then capitalization becomes reasonable from a percentage-return perspective. If the lower structure fails, the position should not be interpreted mechanically as a prediction error alone; instead, the broader fractal must be reassessed, including whether the cycle has shifted from tactical rebound to deeper accumulation.</p>
       <p>Why can GDX be favorable here? Because the stock is sitting in a zone where uncertainty is still elevated, but that same uncertainty creates asymmetry when price is already discounted relative to equilibrium and supported by visible volume concentration. In other words, the opportunity is not that the market is safe; it is that the relationship between downside distance, upside rotation potential, and cycle stage is currently acceptable for a small, disciplined swing allocation.</p>
       <p>This note therefore reflects the same philosophy as the prior publication: process before prediction, limited exposure before conviction, and structured risk before narrative certainty.</p>
+      </article>
+
+      <article class="analysis-article" id="note-001">
+        <div class="analysis-kicker">Market Fractal Notes #001</div>
+        <div class="analysis-head">
+          <div class="analysis-title">FCX: Discount-Zone Rotation and Fractal Risk Management</div>
+          <div class="analysis-meta">Swing / 2-5 days</div>
+        </div>
+        <p>Market Fractal Notes is a personal investment journal where I document how market-cycle theory, risk allocation, volume distribution, behavioral market structure, and decision-making under uncertainty can be applied to real market positions.</p>
+        <p>This is not financial advice or a trading signal. The objective is not to predict the market, but to document a structured analytical process behind investment decisions.</p>
+        <p>This note analyzes FCX as a short-cycle rotation case. The position is based on price interaction with a lower-cycle discount area, supported by Volume Profile concentration near the lower range and prior cyclical behavior.</p>
+        <figure class="analysis-figure">
+          <img src="assets/fcx-note-001.png" alt="FCX chart showing discount zone, U18 support, TP level, and volume profile used in Market Fractal Notes #001" />
+          <figcaption>FCX setup snapshot. The chart highlights the lower-cycle discount area, the U18 reference zone, the projected TP or liquidity area, and the supporting volume-profile structure used in the note.</figcaption>
+        </figure>
+        <p>From a market-structure perspective, the asset is trading below equilibrium and near a zone where previous price interaction suggests potential demand absorption. In this context, the thesis is not that price must move upward, but that the current area offers a reasonable short-cycle rotation opportunity if liquidity starts moving back toward the upper range.</p>
+        <div class="analysis-points">
+          <div class="analysis-point">
+            <h4>Cycle Context</h4>
+            <p>FCX is being evaluated within a short-cycle structure. The setup is tactical rather than a long-term fundamental thesis.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>Liquidity Zone</h4>
+            <p>The position was initiated near the discount or U18 area, where price is interacting with the lower part of the range and the Volume Profile suggests relevant activity.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>Behavioral Thesis</h4>
+            <p>Discount zones often reflect uncertainty, short-term selling pressure, or temporary imbalance. The question is whether that pressure becomes continuation weakness or rotation back toward equilibrium.</p>
+          </div>
+          <div class="analysis-point">
+            <h4>Risk Framework</h4>
+            <p>This strategy does not rely on a traditional stop-loss reaction. Risk is managed through sizing, capital allocation, time horizon, and fractal reassessment.</p>
+          </div>
+        </div>
+        <p style="margin-top:1.2rem;">Decision logic remains explicit. If price holds near the discount or U18 area, the position stays open while waiting for a short-cycle rotation. If price rotates toward the TP or liquidity area around 63.4, capitalization becomes reasonable. If price breaks the local low, that is not treated automatically as a stop-loss event; the analysis shifts to a broader fractal and the time horizon extends. If the broader cycle deteriorates or capital becomes inefficiently locked, then the position must be reassessed from an opportunity-cost perspective.</p>
+        <p>The objective is modest: a controlled, short-cycle capitalization rather than a large directional bet. The value of this process is not in one single trade, but in documenting repeatable decision-making under uncertainty. This note reflects a capital-preservation approach built on limited exposure, structured reasoning, behavioral interpretation, and process over prediction.</p>
+      </article>
     </div>
     <div class="analysis-directory">
       <div class="analysis-directory-head">
         <h3>Notes Directory</h3>
-        <a class="analysis-directory-link" href="https://github.com/ALRIER/market-fractal-notes" target="_blank">Open notes repository ↗</a>
+        <a class="analysis-directory-link" href="market-analysis.html">Open archive page ↗</a>
       </div>
       <div class="analysis-directory-grid">
-        <a href="#market-analysis" class="analysis-directory-item">
+        <a href="market-analysis.html#note-002" class="analysis-directory-item">
           <div class="analysis-directory-kicker">Latest Note</div>
           <div class="analysis-directory-title">Market Fractal Notes #002 — GDX</div>
           <div class="analysis-directory-text">Dual-entry discount structure with U24 and U18 references, moderate risk, and a short-horizon rotation target toward TP U24.</div>
         </a>
-        <a href="https://github.com/ALRIER/market-fractal-notes" target="_blank" class="analysis-directory-item">
+        <a href="market-analysis.html#note-001" class="analysis-directory-item">
           <div class="analysis-directory-kicker">Previous Note</div>
           <div class="analysis-directory-title">Market Fractal Notes #001 — FCX</div>
           <div class="analysis-directory-text">Discount-zone rotation and fractal risk management under a controlled short-cycle capitalization framework.</div>
